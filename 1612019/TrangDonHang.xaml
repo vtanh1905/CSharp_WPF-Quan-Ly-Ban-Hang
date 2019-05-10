@@ -1,0 +1,53 @@
+﻿<Page x:Class="_1612019.TrangDonHang"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_1612019"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1050"
+      Title="TrangDonHang">
+
+    <Grid>
+        <Label x:Name="label" Content="Đơn Hàng" HorizontalAlignment="Left" Margin="474,10,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+        <Button x:Name="btnTatCa" Content="Tất Cả" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Black" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Margin="10,69,914,595" Click="btnTatCa_Click" />
+        <Button x:Name="btnTatCa_Copy" Content="Giao Hàng" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Black" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Margin="326,69,598,595" />
+        <Button x:Name="btnTatCa_Copy1" Content="Đặt Cọc" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Black" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Margin="474,69,450,595" />
+        <Button x:Name="btnTatCa_Copy2" Content="Trực Tiếp" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Black" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Margin="166,69,758,595" />
+
+
+        <ListView x:Name="ltDonHang" HorizontalAlignment="Left" Height="580" Margin="10,110,0,0" VerticalAlignment="Top" Width="1030" PreviewMouseLeftButtonUp="ltDonHang_PreviewMouseLeftButtonUp">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                    <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="TT" Width="45">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding TinhTrang}" Height="20" Margin="0,0,5,0" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Loại"  Width="45">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding LoaiDonHang}" Height="20" Margin="0,0,5,0" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="CMND KH"  Width="90"  DisplayMemberBinding="{Binding CMND}" />
+                    <GridViewColumn Header="Họ Tên"  Width="130"  DisplayMemberBinding="{Binding HoTen}" />
+                    <GridViewColumn Header="SDT"  Width="110"  DisplayMemberBinding="{Binding SDT}" />
+                    <GridViewColumn Header="Địa Chỉ"  Width="250"  DisplayMemberBinding="{Binding DiaChi}" />
+                    <GridViewColumn Header="Ngày"  Width="150"  DisplayMemberBinding="{Binding Ngay}" />
+                    <GridViewColumn Header="Tổng Tiền"  Width="90"  DisplayMemberBinding="{Binding TongTien}" />
+                    <GridViewColumn Header="Tiền Còn Lại"  Width="90"  DisplayMemberBinding="{Binding TienConLai}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>

@@ -1,0 +1,20 @@
+﻿<Window x:Name="layoutLogin" x:Class="_1612019.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1612019"
+        mc:Ignorable="d"
+        Title="Login" Height="400" Width="450"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Login" HorizontalAlignment="Left" Margin="187,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label Target="{Binding ElementName=txtUsername}" Content="_Username" HorizontalAlignment="Left" Margin="6,192,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Target="{Binding ElementName=txtPassword}" Content="_Password" HorizontalAlignment="Left" Margin="11,237,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Height="23" Margin="92,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="329" FontSize="16"/>
+        <PasswordBox PasswordChar="*" x:Name="txtPassword"  HorizontalAlignment="Left" Height="23" Margin="92,241,0,0" VerticalAlignment="Top" Width="329" FontSize="16"/>
+        <Button x:Name="btnDangNhap" Content="Login" HorizontalAlignment="Left" Margin="174,292,0,0" VerticalAlignment="Top" Width="94" FontSize="16" Height="41" Click="btnDangNhap_Click"/>
+        <Image Margin="157,47,161,200" Source="login.jpg" Stretch="Fill"/>
+
+    </Grid>
+</Window>

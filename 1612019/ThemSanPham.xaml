@@ -1,0 +1,77 @@
+﻿<Page x:Class="_1612019.ThemSanPham"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_1612019"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1050"
+      Title="ThemSanPham">
+
+    <Grid>
+        <Image x:Name="imgBack" Source="images/left-arrow-sign.png" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="40" PreviewMouseLeftButtonUp="imgBack_PreviewMouseLeftButtonUp" Cursor="Hand"/>
+        <Button x:Name="btnThemLoaiSanPham" Content="Thêm Loại Sản Phẩm" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Black" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Width="150" Height="50" DockPanel.Dock="Left" Margin="10,70,890,580" Click="btnThemLoaiSanPham_Click"/>
+        <Button x:Name="btnThemSanPham" Content="Thêm Sản Phẩm" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Red" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Width="150" Height="50" Margin="185,70,715,580" Click="btnThemSanPham_Click"/>
+        <GroupBox x:Name="gbLoaiSanPham" Header="" HorizontalAlignment="Left" Height="200" Margin="10,143,0,0" VerticalAlignment="Top" Width="1030" Visibility="Hidden" >
+            <Grid Margin="0,0,0,5">
+                <Button x:Name="btnXacNhanThemLoaiSanPham" Content="Xác Nhận" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Black" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Width="100" Height="30" Margin="471,133,447,10" Click="btnXacNhanThemLoaiSanPham_Click"/>
+                <Label Content="Hảng Sản Xuất" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.538"/>
+                <Label Content="Mục Đích" HorizontalAlignment="Left" Margin="38,73,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.538"/>
+                <TextBox x:Name="txtHangSanXuat" HorizontalAlignment="Left" Height="23" Margin="103,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="905"/>
+                <TextBox x:Name="txtMucDich" HorizontalAlignment="Left" Height="23" Margin="103,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="905"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="gbSanPham" Header="" HorizontalAlignment="Left" Height="547" Margin="10,143,0,0" VerticalAlignment="Top" Width="1030" Visibility="Visible" >
+            <Grid Margin="0,0,0,5">
+                <Button x:Name="btnXacNhanThemSanPham" Content="Xác Nhận" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Black" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Width="100" Height="30" Margin="464,480,454,10" Click="btnXacNhanThemSanPham_Click"/>
+                <Image x:Name="img_SanPham" Source="images/device-camera-icon.png" HorizontalAlignment="Left" Height="160" VerticalAlignment="Top" Width="160" PreviewMouseLeftButtonUp="img_SanPham_PreviewMouseLeftButtonUp" Margin="10,17,0,0"/>
+                <GroupBox x:Name="groupBox" Header="Thông Tin Chính" HorizontalAlignment="Left" Height="168" Margin="192,17,0,0" VerticalAlignment="Top" Width="816">
+                    <Grid Margin="0,0,0,-12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="61*"/>
+                            <ColumnDefinition Width="743*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Tên" HorizontalAlignment="Left" Margin="36,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.538" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="txtTenSanPham" HorizontalAlignment="Left" Height="23" Margin="8,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323" Grid.Column="1"/>
+                        <Label Content="Hãng Sản Xuất" HorizontalAlignment="Left" Margin="335,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.538" Grid.Column="1"/>
+                        <ComboBox x:Name="cmbHangSanXuat" HorizontalAlignment="Left" Margin="428,14,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="-1" SelectionChanged="cmbHangSanXuat_SelectionChanged" Grid.Column="1"/>
+                        <Label Content="Mục Đích" HorizontalAlignment="Left" Margin="548,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.538" Grid.Column="1"/>
+                        <ComboBox x:Name="cmbMucDich" HorizontalAlignment="Left" Margin="613,17,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                        <Label Content="Giá Nhập" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.538" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="txtGiaNhap" HorizontalAlignment="Left" Height="23" Margin="8,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323" Grid.Column="1"/>
+                        <Label Content="Giá Bán" HorizontalAlignment="Left" Margin="336,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.538" Grid.Column="1"/>
+                        <TextBox x:Name="txtGiaBan" HorizontalAlignment="Left" Height="23" Margin="391,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="342" Grid.Column="1"/>
+                        <Label Content="Số Lượng" HorizontalAlignment="Left" Margin="9,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.538" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="txtSoLuong" HorizontalAlignment="Left" Height="23" Margin="8,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323" Grid.Column="1"/>
+                        <CheckBox x:Name="cbHienThi" Content="Hiện Thị Sản Phẩm | Cho Phép Được Thực Hiện Giao Dịch" HorizontalAlignment="Left" Margin="18,121,0,0" VerticalAlignment="Top" IsChecked="True" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </GroupBox>
+
+            </Grid>
+        </GroupBox>
+        <Button x:Name="btnThemBangExcel" Content="Import Execel" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Black" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Width="150" Height="50" Margin="358,70,542,580" Click="btnThemBangExcel_Click"/>
+        <GroupBox x:Name="gbImportExecel" Header="" HorizontalAlignment="Left" Height="547" Margin="10,143,0,0" VerticalAlignment="Top" Width="1030" Visibility="Hidden" >
+            <Grid Margin="0,0,0,5">
+                <GroupBox Header="Thêm Loại Sản Phẩm" HorizontalAlignment="Left" Height="162" Margin="0,10,0,0" VerticalAlignment="Top" Width="497">
+                    <Grid Margin="0,0,0,-12">
+                        <Label x:Name="label" Content="Đường Dẫn File " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+                        <TextBox x:Name="txtPathLoaiSanPham" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="385" Margin="10,41,0,0"/>
+                        <Button x:Name="btnBroswerLoaiSanPham" Content="Broswer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="400,44,0,0" RenderTransformOrigin="-1.32,1.45" Click="btnBroswerLoaiSanPham_Click"/>
+                        <Button x:Name="btnExcelXNLoaiSanPham" Content="Xác Nhận" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Black" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Margin="150,87,145,30" Click="btnExcelXNLoaiSanPham_Click"/>
+                    </Grid>
+
+                </GroupBox>
+                <GroupBox Header="Thêm Sản Phẩm" HorizontalAlignment="Left" Height="162" Margin="502,10,0,0" VerticalAlignment="Top" Width="506">
+                    <Grid Margin="0,0,0,-12">
+                        <Label x:Name="label1" Content="Đường Dẫn File " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+                        <TextBox x:Name="txtPathSanPham" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="385" Margin="10,41,0,0"/>
+                        <Button x:Name="btnBroswerSanPham" Content="Broswer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="400,44,0,0" RenderTransformOrigin="-1.32,1.45" Click="btnBroswerSanPham_Click"/>
+                        <Button x:Name="btnExcelXNSanPham" Content="Xác Nhận" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Black" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Margin="150,84,154,33" Width="190" Height="35" Click="btnExcelXNSanPham_Click"/>
+                    </Grid>
+                </GroupBox>
+
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Page>

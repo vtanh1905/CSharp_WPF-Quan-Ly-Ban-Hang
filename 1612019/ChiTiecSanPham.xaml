@@ -1,0 +1,44 @@
+﻿<Page x:Class="_1612019.ChiTiecSanPham"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_1612019"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1050"
+      Title="ChiTiecSanPham">
+
+    <Grid>
+        <Image x:Name="imgBack" Source="images/left-arrow-sign.png" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="40"  Cursor="Hand" PreviewMouseLeftButtonUp="imgBack_PreviewMouseLeftButtonUp"/>
+        <Button x:Name="btnBatGiaoDich" Content="Giao Dich" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Red" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Width="150" Height="50" Margin="10,55,890,595" Click="btnBatGiaoDich_Click"/>
+        <Grid Margin="10,110,10,10">
+            <Image x:Name="img_SanPham" Source="images/device-camera-icon.png" HorizontalAlignment="Left" Height="160" VerticalAlignment="Top" Width="160" PreviewMouseLeftButtonUp="img_SanPham_PreviewMouseLeftButtonUp" Margin="10,17,0,0"/>
+            <GroupBox x:Name="groupBox" Header="Thông Tin Chính" HorizontalAlignment="Left" Height="168" Margin="192,17,0,0" VerticalAlignment="Top" Width="816">
+                <Grid Margin="0,0,0,-12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="61*"/>
+                        <ColumnDefinition Width="743*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Tên" HorizontalAlignment="Left" Margin="36,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.538" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtTenSanPham" HorizontalAlignment="Left" Height="23" Margin="8,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323" Grid.Column="1" IsReadOnly="True" />
+                    <Label Content="Hãng Sản Xuất" HorizontalAlignment="Left" Margin="335,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.538" Grid.Column="1"/>
+                    <ComboBox x:Name="cmbHangSanXuat" HorizontalAlignment="Left" Margin="428,14,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="-1" SelectionChanged="cmbHangSanXuat_SelectionChanged" Grid.Column="1" IsEnabled="False"/>
+                    <Label Content="Mục Đích" HorizontalAlignment="Left" Margin="548,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.538" Grid.Column="1"/>
+                    <ComboBox x:Name="cmbMucDich" HorizontalAlignment="Left" Margin="613,17,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" IsReadOnly="True" IsEnabled="False"/>
+                    <Label Content="Giá Nhập" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.538" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtGiaNhap" HorizontalAlignment="Left" Height="23" Margin="8,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323" Grid.Column="1" IsReadOnly="True"/>
+                    <Label Content="Giá Bán" HorizontalAlignment="Left" Margin="336,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.538" Grid.Column="1"/>
+                    <TextBox x:Name="txtGiaBan" HorizontalAlignment="Left" Height="23" Margin="391,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="342" Grid.Column="1" IsReadOnly="True"/>
+                    <Label Content="Số Lượng" HorizontalAlignment="Left" Margin="9,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.237,0.538" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtSoLuong" HorizontalAlignment="Left" Height="23" Margin="8,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323" Grid.Column="1" IsReadOnly="True"/>
+                </Grid>
+            </GroupBox>
+            <Button x:Name="btnXacNhanSuaSanPham" Content="Xác Nhận" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Black" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Width="100" Height="30" Margin="471,540,459,10" Click="btnXacNhanSuaSanPham_Click" Visibility="Hidden"/>
+            <Button x:Name="btnMua" Content="Mua" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Black" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Width="100" Height="30" Margin="471,540,459,10" Click="btnMua_Click"/>
+            <Label x:Name="label" Content="Số Lượng : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,503,0,0"/>
+            <TextBox x:Name="txtSoLuongMua" HorizontalAlignment="Left" Height="23" HorizontalContentAlignment="Right" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" Margin="99,507,0,0"/>
+        </Grid>
+        <Button x:Name="btnBatSuaThongTin" Content="Sữa Thông Tin" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Black" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Width="150" Height="50" Margin="190,55,710,595" Click="btnBatSuaThongTin_Click"/>
+        <Button x:Name="btnXoa" Content="Xóa" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Black" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Margin="954,60,32,590" Click="btnXoa_Click"/>
+    </Grid>
+</Page>

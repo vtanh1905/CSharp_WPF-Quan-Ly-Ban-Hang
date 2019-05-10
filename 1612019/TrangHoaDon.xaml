@@ -1,0 +1,65 @@
+﻿<Page x:Class="_1612019.TrangHoaDon"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_1612019"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1050"
+      Title="TrangHoaDon">
+
+    <Grid>
+        <ListView x:Name="ltGioHang" VerticalContentAlignment="Stretch" BorderBrush="Black" BorderThickness="3" Margin="10,146,10,290">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel Width="980">
+                        <Image Source = "{Binding PathImage}" Height="40" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Left" />
+                        <TextBlock Text = "{Binding Name}" FontSize="30px" Foreground="SteelBlue" TextAlignment="Left" HorizontalAlignment="Center" Width="500" />
+                        <TextBlock Text = "{Binding Price}" FontSize="25px" Foreground="Black" FontStyle="Italic" FontWeight="Bold" TextAlignment="Left"  DockPanel.Dock="Right" HorizontalAlignment="Center" Width="140"/>
+                        <TextBlock Text = "{Binding Count}" FontSize="20px" Foreground="Black" FontStyle="Italic" FontWeight="Bold" TextAlignment="Center"  DockPanel.Dock="Right" HorizontalAlignment="Center" Width="50"/>
+                    </DockPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+        <Label x:Name="label" Content="Hóa Đơn" HorizontalAlignment="Left" Margin="484,10,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+        <Label x:Name="label_Copy" Content="Tên Sản Phẩm" HorizontalAlignment="Left" Margin="74,110,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
+        <Label x:Name="label_Copy1" Content="Số Lượng" HorizontalAlignment="Left" Margin="676,110,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Width="76"/>
+        <Label x:Name="label_Copy2" Content="Giá" HorizontalAlignment="Left" Margin="889,110,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Width="76"/>
+        <Label x:Name="label_Copy3" Content="Tổng Giá trị : " HorizontalAlignment="Left" Margin="687,418,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
+        <Label x:Name="lblTongGiaTri" Content="0" HorizontalAlignment="Right" Foreground="Black"  Margin="0,418,85,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"  FontSize="15" FontWeight="Bold" Width="168"/>
+        <Label x:Name="label_Copy4" Content="Khuyến Mãi : " HorizontalAlignment="Left" Margin="687,448,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
+        <Label x:Name="lblKhuyenMai" Content="0" HorizontalAlignment="Right" Foreground="Red"  Margin="0,448,85,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"  FontSize="15" FontWeight="Bold" Width="168"/>
+        <Label x:Name="label_Copy5" Content="Tổng Tiền : " HorizontalAlignment="Left" Margin="699,478,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
+        <Label x:Name="lblTongTien" Content="0" HorizontalAlignment="Right" Foreground="Blue"  Margin="0,478,85,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"  FontSize="15" FontWeight="Bold" Width="168"/>
+        <Label x:Name="label_Copy6" Content="Mã Khuyến Mãi : " HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
+        <TextBox x:Name="txtMaKhuyenMai" IsReadOnly="True" HorizontalAlignment="Left" Height="22" Margin="143,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
+        <GroupBox x:Name="groupBox" Header="Thông Tin Đơn Hàng" HorizontalAlignment="Left" Height="60" Margin="10,418,0,0" VerticalAlignment="Top" Width="644" >
+            <Grid>
+                <Label x:Name="label1" Content="Loại Hóa Đơn : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0"/>
+                <ComboBox x:Name="cmbLoaiHoaDon" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="91,14,0,0" IsEnabled="False" SelectionChanged="cmbLoaiHoaDon_SelectionChanged"/>
+                <Label x:Name="lblTienDatCoc" Content="Tiền Đặt Cọc : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="241,10,0,0"/>
+                <TextBox x:Name="txtTienDatCoc" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="289" Margin="333,14,0,0"/>
+
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="gbThongTinKhachHang" Header="Thông Tin Khách Hàng" HorizontalAlignment="Left" Height="110" Margin="10,525,0,0" VerticalAlignment="Top" Width="1030">
+            <Grid Margin="0,0,-2,0">
+                <Label x:Name="label2" Content="CMND :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,11,0,0"/>
+                <Label x:Name="label2_Copy" Content="Họ Tên :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,41,0,0"/>
+                <TextBox x:Name="txtCMND" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="433" Margin="66,14,0,0"/>
+                <TextBox x:Name="txtHoTen" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="433" Margin="66,45,0,0"/>
+                <Label x:Name="label2_Copy1" Content="SDT :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="557,14,0,0"/>
+                <Label x:Name="label2_Copy2" Content="Địa Chỉ :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="539,42,0,0"/>
+                <TextBox x:Name="txtSDT" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="411" Margin="599,14,0,0"/>
+                <TextBox x:Name="txtDiaChi" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="411" Margin="599,44,0,0"/>
+            </Grid>
+        </GroupBox>
+        <Label x:Name="lblTongGiaTri_Copy" Content="VND" HorizontalAlignment="Right" Foreground="Black"  Margin="0,418,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"  FontSize="15" FontWeight="Bold" Width="75"/>
+        <Label x:Name="lblTongGiaTri_Copy1" Content="VND" HorizontalAlignment="Right" Foreground="Black"  Margin="0,448,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"  FontSize="15" FontWeight="Bold" Width="75"/>
+        <Label x:Name="lblTongGiaTri_Copy2" Content="VND" HorizontalAlignment="Right" Foreground="Black"  Margin="0,478,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"  FontSize="15" FontWeight="Bold" Width="75"/>
+        <Image x:Name="imgBack" Source="images/left-arrow-sign.png" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="40"  Cursor="Hand" PreviewMouseLeftButtonUp="imgBack_PreviewMouseLeftButtonUp" />
+        <Button x:Name="btnThanhToan" Content="Thanh Toán" BorderThickness="0" TextBlock.FontWeight="Bold" Background="Black" RenderTransformOrigin="0.21,0.85" Foreground="White" FontFamily="Century Gothic" BorderBrush="Black" Margin="484,655,448,10" Click="btnThanhToan_Click"/>
+
+    </Grid>
+</Page>

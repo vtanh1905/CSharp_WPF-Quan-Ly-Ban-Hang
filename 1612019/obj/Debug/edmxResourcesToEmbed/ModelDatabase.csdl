@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DonHang">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GioHang_STT" Type="Int32" />
+    <Property Name="KhachHang_CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MaKhuyenMai_ID" Type="Int32" />
+    <Property Name="LoaiThanhDon" Type="Int32" />
+    <Property Name="TinhTrang" Type="Int32" />
+    <Property Name="NgayTao" Type="DateTime" Precision="3" />
+    <Property Name="TongGiaTriNhap" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TongGiaTriBan" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TienConLaiPhaiTra" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="GioHang" Relationship="Self.FK_DonHang_ToGioHang" FromRole="DonHang" ToRole="GioHang" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK_DonHang_ToKhachHang" FromRole="DonHang" ToRole="KhachHang" />
+    <NavigationProperty Name="MaKhuyenMai" Relationship="Self.FK_DonHang_ToMaKhuyenMai" FromRole="DonHang" ToRole="MaKhuyenMai" />
+  </EntityType>
+  <EntityType Name="GioHang">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="SanPham_ID" Type="Int32" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" />
+    <NavigationProperty Name="DonHangs" Relationship="Self.FK_DonHang_ToGioHang" FromRole="GioHang" ToRole="DonHang" />
+    <NavigationProperty Name="SanPham" Relationship="Self.FK_GioHang_ToSanPham" FromRole="GioHang" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="CMND" />
+    </Key>
+    <Property Name="CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DonHangs" Relationship="Self.FK_DonHang_ToKhachHang" FromRole="KhachHang" ToRole="DonHang" />
+  </EntityType>
+  <EntityType Name="LoaiSanPham">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HangSanXuat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MucDich" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SanPhams" Relationship="Self.FK_SanPham_ToLoaiSanPham" FromRole="LoaiSanPham" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="MaKhuyenMai">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Loai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GiaTri" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DonHangs" Relationship="Self.FK_DonHang_ToMaKhuyenMai" FromRole="MaKhuyenMai" ToRole="DonHang" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoaiSanPham_ID" Type="Int32" />
+    <Property Name="HinhAnh" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GiaNhap" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="GiaBan" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CPU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ram" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OCung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CDDVD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CardVGA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManHinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KetNoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TrongLuong" Type="Int32" />
+    <Property Name="Pin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HeDieuHanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="HienThi" Type="Int32" />
+    <NavigationProperty Name="GioHangs" Relationship="Self.FK_GioHang_ToSanPham" FromRole="SanPham" ToRole="GioHang" />
+    <NavigationProperty Name="LoaiSanPham" Relationship="Self.FK_SanPham_ToLoaiSanPham" FromRole="SanPham" ToRole="LoaiSanPham" />
+  </EntityType>
+  <Association Name="FK_DonHang_ToGioHang">
+    <End Role="GioHang" Type="Self.GioHang" Multiplicity="0..1" />
+    <End Role="DonHang" Type="Self.DonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GioHang">
+        <PropertyRef Name="STT" />
+      </Principal>
+      <Dependent Role="DonHang">
+        <PropertyRef Name="GioHang_STT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonHang_ToKhachHang">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="DonHang" Type="Self.DonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="CMND" />
+      </Principal>
+      <Dependent Role="DonHang">
+        <PropertyRef Name="KhachHang_CMND" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonHang_ToMaKhuyenMai">
+    <End Role="MaKhuyenMai" Type="Self.MaKhuyenMai" Multiplicity="0..1" />
+    <End Role="DonHang" Type="Self.DonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaKhuyenMai">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DonHang">
+        <PropertyRef Name="MaKhuyenMai_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GioHang_ToSanPham">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
+    <End Role="GioHang" Type="Self.GioHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GioHang">
+        <PropertyRef Name="SanPham_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_ToLoaiSanPham">
+    <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="0..1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiSanPham">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="LoaiSanPham_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MyDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DonHangs" EntityType="Self.DonHang" />
+    <EntitySet Name="GioHangs" EntityType="Self.GioHang" />
+    <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+    <EntitySet Name="LoaiSanPhams" EntityType="Self.LoaiSanPham" />
+    <EntitySet Name="MaKhuyenMais" EntityType="Self.MaKhuyenMai" />
+    <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
+    <AssociationSet Name="FK_DonHang_ToGioHang" Association="Self.FK_DonHang_ToGioHang">
+      <End Role="GioHang" EntitySet="GioHangs" />
+      <End Role="DonHang" EntitySet="DonHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonHang_ToKhachHang" Association="Self.FK_DonHang_ToKhachHang">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="DonHang" EntitySet="DonHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonHang_ToMaKhuyenMai" Association="Self.FK_DonHang_ToMaKhuyenMai">
+      <End Role="MaKhuyenMai" EntitySet="MaKhuyenMais" />
+      <End Role="DonHang" EntitySet="DonHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GioHang_ToSanPham" Association="Self.FK_GioHang_ToSanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="GioHang" EntitySet="GioHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SanPham_ToLoaiSanPham" Association="Self.FK_SanPham_ToLoaiSanPham">
+      <End Role="LoaiSanPham" EntitySet="LoaiSanPhams" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
